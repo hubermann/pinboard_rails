@@ -1,0 +1,17 @@
+!!! 5
+%html
+%head
+  %title Pin Borad
+  = stylesheet_link_tag 	'application', media: 'all', 'data-turbolinks-track': 'reload'
+  
+  %link{:type => "text/css", :rel => "stylesheet", :href => "https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"}
+  = javascript_include_tag 'application', 'data-turbolinks-track': 'reload'
+  = csrf_meta_tags
+%body
+  .container
+    - flash.each do |name, msg|
+      = content_tag :div, msg, class: "alert alert-info"	
+    %h1 Pin Board App
+    = link_to "New Pin", new_pin_path
+    %hr  	
+    = yield
